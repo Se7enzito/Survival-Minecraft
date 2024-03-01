@@ -1,0 +1,7 @@
+name: Survival
+version: 0.1
+author: Se7enzito
+main: me.survival.Main
+commands:
+  configreload:
+  
