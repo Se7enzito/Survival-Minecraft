@@ -4,4 +4,5 @@ author: Se7enzito
 main: me.survival.Main
 commands:
   configreload:
+  itens:
   
