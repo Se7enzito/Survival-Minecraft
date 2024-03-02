@@ -5,4 +5,5 @@ main: me.survival.Main
 commands:
   configreload:
   itens:
+  classes:
   

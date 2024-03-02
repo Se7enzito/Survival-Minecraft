@@ -8,6 +8,10 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.survival.APIs.CooldownEstilingue;
+import me.survival.classes.CommandClasses;
+import me.survival.classes.arqueiro.MenuArqueiro;
+import me.survival.classes.campones.MenuCampones;
+import me.survival.classes.guerreiro.MenuGuerreiro;
 import me.survival.console.ConsoleCommands;
 import me.survival.events.JoinEvent;
 import me.survival.events.NoHungerEvent;
@@ -28,12 +32,17 @@ public class Main extends JavaPlugin {
 		
 		getCommand("configreload").setExecutor(new ConsoleCommands());
 		getCommand("itens").setExecutor(new CommandItensEspeciais());
+		getCommand("classes").setExecutor(new CommandClasses());
 		
 		pm.registerEvents(new JoinEvent(), this);
 		pm.registerEvents(new NoHungerEvent(), this);
 		pm.registerEvents(new CommandItensEspeciais(), this);
 		pm.registerEvents(new EstilingueEvent(), this);
 		pm.registerEvents(new MenuItensAPI(), this);
+		pm.registerEvents(new CommandClasses(), this);
+		pm.registerEvents(new MenuArqueiro(), this);
+		pm.registerEvents(new MenuGuerreiro(), this);
+		pm.registerEvents(new MenuCampones(), this);
 		
 		CooldownEstilingue.setupCooldown();
 		

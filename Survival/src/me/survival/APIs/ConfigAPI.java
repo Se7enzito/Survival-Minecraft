@@ -2,6 +2,7 @@ package me.survival.APIs;
 
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 
 import me.survival.Main;
 
@@ -41,5 +42,28 @@ public class ConfigAPI {
 		
 		return message;
 	}
-
+	
+	// Guerreiro, Arqueiro, Campones
+	
+	public String getClasseSelecionada(Player p) {
+		String classe = config.getString(p.getName() + "." + "ClasseSelecionada");
+		
+		if (classe.isEmpty() || classe == "" || classe == null) {
+			classe = "Nenhuma";
+		}
+		
+		return classe;
+	}
+	
+	public int getLevelClasse(Player p, String classe) {
+		int level = config.getInt(p.getName() + "." + "Level" + classe);
+		
+		return level;
+	}
+	
+	public long getXpClasse(Player p, String classe) {
+		long xp = config.getLong(p.getName() + "." + "Xp" + classe);
+		
+		return xp;
+	}
 }
