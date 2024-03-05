@@ -6,4 +6,5 @@ commands:
   configreload:
   itens:
   classes:
+  banco:
   

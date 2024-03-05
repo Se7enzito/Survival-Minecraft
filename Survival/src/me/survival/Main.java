@@ -8,6 +8,8 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.survival.APIs.CooldownEstilingue;
+import me.survival.banco.CommandBanco;
+import me.survival.banco.MenusBanco;
 import me.survival.classes.CommandClasses;
 import me.survival.classes.arqueiro.MenuArqueiro;
 import me.survival.classes.campones.MenuCampones;
@@ -33,6 +35,7 @@ public class Main extends JavaPlugin {
 		getCommand("configreload").setExecutor(new ConsoleCommands());
 		getCommand("itens").setExecutor(new CommandItensEspeciais());
 		getCommand("classes").setExecutor(new CommandClasses());
+		getCommand("banco").setExecutor(new CommandBanco());
 		
 		pm.registerEvents(new JoinEvent(), this);
 		pm.registerEvents(new NoHungerEvent(), this);
@@ -43,6 +46,8 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new MenuArqueiro(), this);
 		pm.registerEvents(new MenuGuerreiro(), this);
 		pm.registerEvents(new MenuCampones(), this);
+		pm.registerEvents(new CommandBanco(), this);
+		pm.registerEvents(new MenusBanco(), this);
 		
 		CooldownEstilingue.setupCooldown();
 		
