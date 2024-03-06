@@ -17,9 +17,14 @@ import me.survival.classes.guerreiro.MenuGuerreiro;
 import me.survival.console.ConsoleCommands;
 import me.survival.events.JoinEvent;
 import me.survival.events.NoHungerEvent;
+import me.survival.farms.CommandFarmsMenu;
+import me.survival.farms.CommandJardim;
+import me.survival.farms.CommandMadeira;
+import me.survival.farms.CommandMinas;
 import me.survival.itens.CommandItensEspeciais;
 import me.survival.itens.MenuItensAPI;
 import me.survival.itens.events.EstilingueEvent;
+import me.survival.money.CommandMoney;
 
 public class Main extends JavaPlugin {
 	
@@ -36,6 +41,11 @@ public class Main extends JavaPlugin {
 		getCommand("itens").setExecutor(new CommandItensEspeciais());
 		getCommand("classes").setExecutor(new CommandClasses());
 		getCommand("banco").setExecutor(new CommandBanco());
+		getCommand("money").setExecutor(new CommandMoney());
+		getCommand("farms").setExecutor(new CommandFarmsMenu());
+		getCommand("minas").setExecutor(new CommandMinas());
+		getCommand("madeira").setExecutor(new CommandMadeira());
+		getCommand("jardim").setExecutor(new CommandJardim());
 		
 		pm.registerEvents(new JoinEvent(), this);
 		pm.registerEvents(new NoHungerEvent(), this);
@@ -48,6 +58,7 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new MenuCampones(), this);
 		pm.registerEvents(new CommandBanco(), this);
 		pm.registerEvents(new MenusBanco(), this);
+		pm.registerEvents(new CommandMoney(), this);
 		
 		CooldownEstilingue.setupCooldown();
 		

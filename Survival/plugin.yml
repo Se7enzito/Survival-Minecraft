@@ -7,4 +7,9 @@ commands:
   itens:
   classes:
   banco:
+  money:
+  farms:
+  madeira:
+  minas:
+  jardim:
   
