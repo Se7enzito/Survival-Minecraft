@@ -27,16 +27,17 @@ import me.survival.itens.events.EstilingueEvent;
 import me.survival.money.CommandMoney;
 
 public class Main extends JavaPlugin {
-	
+
 	public static Main m;
-	
+
 	private ConsoleCommandSender console = Bukkit.getConsoleSender();
 	private PluginManager pm = Bukkit.getPluginManager();
-	
+//	private FileConfiguration cf;
+
 	@Override
 	public void onEnable() {
 		console.sendMessage(ChatColor.RED + "Sistema de Survival ligado com sucesso");
-		
+
 		getCommand("configreload").setExecutor(new ConsoleCommands());
 		getCommand("itens").setExecutor(new CommandItensEspeciais());
 		getCommand("classes").setExecutor(new CommandClasses());
@@ -46,7 +47,7 @@ public class Main extends JavaPlugin {
 		getCommand("minas").setExecutor(new CommandMinas());
 		getCommand("madeira").setExecutor(new CommandMadeira());
 		getCommand("jardim").setExecutor(new CommandJardim());
-		
+
 		pm.registerEvents(new JoinEvent(), this);
 		pm.registerEvents(new NoHungerEvent(), this);
 		pm.registerEvents(new CommandItensEspeciais(), this);
@@ -59,26 +60,35 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new CommandBanco(), this);
 		pm.registerEvents(new MenusBanco(), this);
 		pm.registerEvents(new CommandMoney(), this);
-		
+
 		CooldownEstilingue.setupCooldown();
-		
+
 		super.onEnable();
 	}
-	
+
 	@Override
 	public void onDisable() {
 		console.sendMessage(ChatColor.RED + "Sistema de Survival desligado com sucesso");
-		
+
 		HandlerList.unregisterAll();
-		
+
 		super.onDisable();
 	}
-	
+
 	@Override
 	public void onLoad() {
 		m = this;
-		
+//		cf = getConfig();
+
+//		saveInicial();
+
 		super.onLoad();
 	}
+
+//	public void saveInicial() {
+//		cf.addDefault("Inicial", 100);
+//		cf.options().copyDefaults(true);
+//		saveConfig();
+//	}
 
 }
